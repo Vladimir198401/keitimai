@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>dvejetainiu dauginimas</title>
+	<style>
+	label, input {
+		display: block;
+	}
+	table.res {
+		border-collapse: collapse;
+	}
+	table.res td, table.res th {
+		border: 1px solid black;
+	}
+	</style>
+	<script>
+
+		function skaiciuoti() {
+		
+			res_str  = '';
+			res = document.getElementById ( "rez" );
+			dvl = document.getElementById ( "antroji" ).value;
+			skc =0;
+			sk=0;
+			
+			{
+				
+				{
+
+				num=0;
+				sk=1;				
+				skc = dvl[8]*sk;
+				suma1=skc;
+				
+					}	
+				i=1;
+				{
+
+				num=1;
+				sk=2;				
+				skc = dvl[7]*sk;
+				suma2=skc;
+					}
+				i=2;	
+				{
+				num=2;  
+				sk=4;  			
+				skc = dvl[6]*sk;  
+				suma3=skc;
+			
+					}
+				i=3;
+				{
+
+				num=3;
+				sk=8;				
+				skc = dvl[5]*sk;
+				suma4=skc;
+				
+					}	
+				i=4;	
+				{
+
+				num=4;
+				sk=16;				
+				skc = dvl[4]*sk;
+				suma5=skc;
+				
+					}	
+				i=3;	
+				{
+
+				num=5;
+				sk=32;				
+				skc = dvl[3]*sk;
+				suma6=skc;
+				
+					}
+				i=4;	
+				{
+
+				num=6;
+				sk=64;				
+				skc = dvl[2]*sk;
+				suma7=skc;
+				
+					}	
+				i=5;	
+				{
+
+				num=7;
+				sk=128;				
+				skc = dvl[1]*sk; 
+				suma8=skc;
+				
+					}
+					
+				
+				i=6;
+				{
+
+				num=8;
+				sk=256;				
+				skc = dvl[0]*sk; 
+				suma9=skc;
+					}
+			}	
+			res_str = suma1+suma2+suma3+suma4+suma5+suma6+suma7+suma8+suma9;
+			res.innerHTML = res_str ;
+		}
+	</script>
+</head>
+<body>
+	<label>antroji</label>
+	<input type="text" id="antroji" name="antroji" value="101011101">
+	<hr>
+	<input type="button" id="skaiciuoti" name="skaiciuoti" value="skaiciuoti" onClick="skaiciuoti()">
+	<div id="rez">
+	</div>
+</body>
+</html>

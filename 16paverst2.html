@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>atvertimas</title>
+	<style>
+	label, input {
+		display: block;
+	}
+	table.res {
+		border-collapse: collapse;
+	}
+	table.res td, table.res th {
+		border: 1px solid black;
+	}
+	</style>
+	<script>
+			
+			var chars_hex = [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e' , 'f' ]; 
+			var numbers = [ '0000', '0001', '0010' , '0011' , '0100', '0101', '0110', '0111', '1000', '1001', '1010', '1011', '1100' , '1101', '1110', '1111'];
+			
+		function skaiciuoti() {
+
+			res_str = '';
+			res = document.getElementById ( 'rez' );
+			a= document.getElementById("antroji").value;
+			
+			for (var i = 0; i < a.length; i++) { 
+			
+
+				console.log( 'a[ ' + i + '  ]: ' + a [ i ]  );
+				
+				k = chars_hex.indexOf ( a [ i ] );
+				console.log ( 'k: ' + k );
+				
+				if ( k  > -1 ) {
+				res_str += numbers [ k ] ;
+
+					console.log ( 'numbers[' + k+ ']: ' + numbers [ k ] );
+				}
+
+			}
+			
+			res.innerHTML = res_str ;
+		}
+	</script>
+</head>
+<body>
+	<label>šešioliktainis</label>
+	<input type="text" id="antroji" name="antroji" value="15d">
+	<hr>
+	<input type="button" id="skaiciuoti" name="skaiciuoti" value="skaiciuoti" onClick="skaiciuoti()">
+	<div id="rez">
+	</div>
+</body>
+</html>

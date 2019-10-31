@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>laikas</title>
+	<style>
+	
+	label, input {
+	
+		display: block;
+	}
+	table.res {
+	
+		border-collapse: collapse;
+	}
+	table.res td, table.res th {
+	
+		border: 1px solid black;
+	}
+	</style>
+	<script>
+	
+		function skaiciuoti() {
+		
+			res = document.getElementById ( "rez" );
+			
+			p_dal = parseInt ( document.getElementById ( "antroji" ).value );
+			
+			skc1 = p_dal % 2;
+			
+			a_dal = parseInt ( p_dal /  2);
+			
+			skc2 = a_dal %2;
+			
+			t_dal = parseInt (a_dal/2);
+			
+			skc3 = t_dal % 2; 
+			
+			k_dal = parseInt (t_dal/2);
+			
+			skc4 = k_dal % 2;
+			
+			pe_dal = parseInt (k_dal/2);
+			
+			skc5 = pe_dal%2;
+			
+			se_dal = parseInt (pe_dal/2);
+			
+			skc6 = se_dal%2;
+			
+			sep_dal = parseInt (se_dal/2);
+			
+			skc7 = sep_dal%2;
+			
+			as_dal = parseInt (sep_dal/2);
+
+			skc8 = as_dal%2;
+			
+			de_dal = parseInt (as_dal/2);
+
+			skc9 = de_dal%2;
+			
+			res_str = + skc9 + ':' +skc8 + ':' +skc7 + ':'+ skc6 + ':' + skc5 + ':' +skc4 + ':' +skc3 + ':'+ skc2 + ':' + skc1;
+			
+			res.innerHTML = res_str ;
+		}
+
+		
+	</script>
+</head>
+<body>
+	<label>antroji?</label>
+	<input type="text" id="antroji" name="antroji" value="349">
+	<hr>
+	<input type="button" id="skaiciuoti" name="skaiciuoti" value="skaiciuoti" onClick="skaiciuoti()">
+	<div id="rez">
+	</div>
+</body>
+</html>

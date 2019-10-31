@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>10paverst16</title>
+	<style>
+	
+	label, input {
+	
+		display: block;
+	}
+	table.res {
+	
+		border-collapse: collapse;
+	}
+	table.res td, table.res th {
+	
+		border: 1px solid black;
+	}
+	</style>
+	<script>
+	
+		var dvl;
+		var skaitmuo_skx;
+		
+		function skaiciuoti() {
+	
+			res_str  = '';
+			//sk_raid = [10,11,12,13,14,15];
+			res = document.getElementById ( "rez" );
+			dvl= document.getElementById ( "antroji" ).value;
+			suma = 0;
+			kiekis = dvl.length;
+			skaitmuo=0;
+			
+			while ( dvl >= 16 ) {	//kol jis yra daugiau uz 16
+			
+				skaitmuo = parseInt (dvl /16);    //  dalinam ji  16
+				skaitmuo_sk = (dvl %16);     // parkeliant 16
+				
+				if ( skaitmuo_sk > 9 ) {     	//jaigu daugiau uz 9					
+	
+					switch ( skaitmuo_sk ) {
+					
+						case 10: skaitmuo_skx = 'a'; break;
+						case 11: skaitmuo_skx = 'b'; break;
+						case 12: skaitmuo_skx = 'c'; break;
+						case 13: skaitmuo_skx = 'd'; break;			//paverciam raidem arba skaicium
+						case 14: skaitmuo_skx = 'e'; break;
+						case 15: skaitmuo_skx = 'f'; break;						
+					}
+				
+				} else {
+				
+					//skaitmuo_skx  = parseInt ( skaitmuo_sk );     //perdarom?
+					
+				}
+				
+				suma =  skaitmuo +''+ skaitmuo_sk +''+ skaitmuo_skx ;   // suskaiciojam
+				
+				console.log( 'skaitmuo:' + skaitmuo );
+				console.log( 'skaitmuo_sk:' + skaitmuo_sk  );
+				console.log( 'skaitmuo_skx:' + skaitmuo_skx  );
+				
+				dvl = skaitmuo;
+			}
+			res_str+=suma;
+			res.innerHTML=res_str;
+		}
+		
+	</script>
+</head>
+<body>
+	<label>10paverst16</label>
+	<input type="text" id="antroji" name="antroji" value="349">
+	<hr>
+	<input type="button" id="skaiciuoti" name="skaiciuoti" value="skaiciuoti" onClick="skaiciuoti()">
+	<div id="rez">
+	</div>
+</body>
+</html>

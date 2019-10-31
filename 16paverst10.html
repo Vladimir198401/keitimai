@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>atvertimas</title>
+	<style>
+	label, input {
+		display: block;
+	}
+	table.res {
+		border-collapse: collapse;
+	}
+	table.res td, table.res th {
+		border: 1px solid black;
+	}
+	</style>
+	<script>
+		var dvl;
+				
+		function skaiciuoti() {
+		
+			res_str  = '';
+			sk_raid = [ 'a', 'b', 'c', 'd', 'e', 'f' ];
+			res = document.getElementById ( "rez" );
+			dvl= document.getElementById ( "antroji" ).value;
+			suma = 0;
+			
+			kiekis = dvl.length;
+			poz16_daugikl = 1;
+			
+			for ( i = 0; i < kiekis; i++ ) {
+			
+				skaitmuo = dvl [ kiekis -1 - i ];
+				
+				if ( sk_raid.indexOf ( skaitmuo ) !== -1 ) {     //  skaitmuo yra raide�
+				
+					switch ( skaitmuo ) {
+					
+						case 'a': skaitmuo_sk = 10; break;
+						case 'b': skaitmuo_sk = 11; break;
+						case 'c': skaitmuo_sk = 12; break;
+						case 'd': skaitmuo_sk = 13; break;
+						case 'e': skaitmuo_sk = 14; break;
+						case 'f': skaitmuo_sk = 15; break;						
+					}
+				
+				} else {
+				
+					skaitmuo_sk = parseInt ( skaitmuo );
+				}
+			
+				suma += skaitmuo_sk * poz16_daugikl;
+				poz16_daugikl *= 16;			
+
+				console.log( 'skaitmuo' + skaitmuo );
+				console.log( 'skaitmuo_sk:' + skaitmuo_sk  );
+				console.log( 'poz16_daugikl:' + poz16_daugikl );
+
+			}
+			res_str =suma;
+			res.innerHTML = res_str ;
+		}
+	</script>
+</head>
+<body>
+	<label>šešioliktainis</label>
+	<input type="text" id="antroji" name="antroji" value="15d">
+	<hr>
+	<input type="button" id="skaiciuoti" name="skaiciuoti" value="skaiciuoti" onClick="skaiciuoti()">
+	<div id="rez">
+	</div>
+</body>
+</html>
