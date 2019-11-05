@@ -13,6 +13,9 @@
 	table.res td, table.res th {
 		border: 1px solid black;
 	}
+	.error {
+		color: red;
+	}
 	</style>
 	<script>
 			
@@ -45,26 +48,26 @@
 				pabaiga = i ;
 											console.log( 'i: ' + i  +  ' pradzia: ' + pradzia + ' pabaiga: ' + pabaiga  );
 				numerio_dalis_14 = a.slice(pradzia,pabaiga);
+				
+				if (  ( sk_simboliu = numerio_dalis_14.length ) < 4 ) {
+				
+					for (var k = 0 ; k < 4- sk_simboliu;  k++ )  {
+					
+						 numerio_dalis_14 = '0' + numerio_dalis_14;
+					}
+				}
 					
 				eiles_numeris = numbers.indexOf ( numerio_dalis_14);
 				
-				if (eiles_numeris !== -1 ) { 
+				if ( eiles_numeris !== -1 ) { 
 				
 					galutine_dalis =  chars_hex [ eiles_numeris ]; 
 					
 				} else {
 				
-					sk_simboliu = numerio_dalis_14.length;
-					
-					for (var k = 0 ; k < 4- sk_simboliu;  k++ )  {
-					
-						 numerio_dalis_14 = '0' + numerio_dalis_14;
-					}
-					eiles_numeris = numbers.indexOf ( numerio_dalis_14 );
-					galutine_dalis =  chars_hex [ eiles_numeris ]; 
-
-				}	
+					galutine_dalis = '<span class="error">?</span>';
 				
+				}
 											console.log ( ' numerio_dalis_14: ' + numerio_dalis_14 );
 											
 											console.log ( '  eiles_numeris: ' + eiles_numeris );
