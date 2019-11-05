@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>atvertimas</title>
+	<style>
+	label, input {
+		display: block;
+	}
+	table.res {
+		border-collapse: collapse;
+	}
+	table.res td, table.res th {
+		border: 1px solid black;
+	}
+	.error {
+		color: red;
+	}
+	</style>
+	<script>
+			
+		var chars_hex = [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e' , 'f' ]; 
+			
+		var numbers = [ '0000', '0001', '0010' , '0011' , '0100', '0101', '0110', '0111', '1000', '1001', '1010', '1011', '1100' , '1101', '1110', '1111'];
+		
+		
+		function skaiciuoti() {
+		
+			parinkimas_skaiciavimo = document.getElementById ( 'keit_tipas' );
+
+			switch ( parinkimas_skaiciavimo.value ) {
+			
+				case '10_2': skaiciuoti_10_2(); break;
+				case '2_10': skaiciuoti_2_10(); break;
+				case '10_16': skaiciuoti_10_16(); break;
+				case '16_10': skaiciuoti_16_10(); break;
+				case '16_2': skaiciuoti_16_2(); break;
+				case '2_16': skaiciuoti_2_16(); break;
+				
+				default :
+				
+					alert ( 'klaida ' );
+			}
+		
+		}
+			
+		function skaiciuoti_2_16() {
+
+			res_str = '';
+			res = document.getElementById ( 'rez' );
+			a= document.getElementById("antroji").value;
+
+			numerio_dalis_14 =0;
+			galutine_dalis = 0;
+			skaicius_hex = '';
+											console.log( 'a.length: ' + a.length  );
+			
+			for (var i = a.length; i > 0 ;  i-=4) {
+			//for (var i = 0; i <= a.length ;  i+=4) {
+			
+				pradzia = i - 4;
+				
+				if ( pradzia < 0 ) {
+				
+					pradzia = 0;
+				}
+				
+				pabaiga = i ;
+											console.log( 'i: ' + i  +  ' pradzia: ' + pradzia + ' pabaiga: ' + pabaiga  );
+				numerio_dalis_14 = a.slice(pradzia,pabaiga);
+				
+				if (  ( sk_simboliu = numerio_dalis_14.length ) < 4 ) {
+				
+					for (var k = 0 ; k < 4- sk_simboliu;  k++ )  {
+					
+						 numerio_dalis_14 = '0' + numerio_dalis_14;
+					}
+				}
+					
+				eiles_numeris = numbers.indexOf ( numerio_dalis_14);
+				
+				if ( eiles_numeris !== -1 ) { 
+				
+					galutine_dalis =  chars_hex [ eiles_numeris ]; 
+					
+				} else {
+				
+					galutine_dalis = '<span class="error">?</span>';
+				
+				}
+											console.log ( ' numerio_dalis_14: ' + numerio_dalis_14 );
+											
+											console.log ( '  eiles_numeris: ' + eiles_numeris );
+
+											console.log ( '  galutine_dalis: ' + galutine_dalis );
+				//skaicius_hex += galutine_dalis;
+				skaicius_hex = galutine_dalis + skaicius_hex;
+											console.log ( '  skaicius_hex: ' + skaicius_hex );
+			}		
+			res_str =skaicius_hex;
+			res.innerHTML = res_str ;
+		}
+	</script>
+</head>
+<body>
+	<label>pasirinkite keitimą</label>
+	<select id="keit_tipas">
+		<option value="10_2">10 -> 2</option>
+		<option value="2_10">2 -> 10</option>
+		<option value="10_16">10 -> 16</option>
+		<option value="16_10">16 -> 10</option>
+		<option value="16_2">16 -> 2</option>
+		<option value="2_16">2 -> 16</option>
+	</select>
+	<label>keičiama reikšmė</label>					
+	<input type="text" id="antroji" name="antroji" value="101011101">
+	<hr>
+	<input type="button" id="skaiciuoti" name="skaiciuoti" value="skaiciuoti" onClick="skaiciuoti()">
+	rezultatas:
+	<div id="rez">
+	</div>
+</body>
+</html>
