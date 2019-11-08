@@ -1,29 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>10paverst16</title>
-	<style>
-	
-	label, input {
-	
-		display: block;
-	}
-	table.res {
-	
-		border-collapse: collapse;
-	}
-	table.res td, table.res th {
-	
-		border: 1px solid black;
-	}
-	</style>
-	<script>
-	
-		var dvl;
-		var skaitmuo_skx;
-		
-		function skaiciuoti() {
+		function skaiciuoti_10_16() {
 	
 			res_str  = '';
 			//sk_raid = [10,11,12,13,14,15];
@@ -32,6 +7,17 @@
 			suma = '';
 			kiekis = dvl.length;
 			skaitmuo=0;
+			
+			var xdvl = parseInt ( dvl );
+			
+			console.log( 'xdvl:' + xdvl );
+			
+			if ( isNaN ( xdvl )) {  
+				
+				//suma =  xdvl;  
+				
+				suma = '<span class="error">?</span>';
+			}
 			
 			while ( dvl > 0 ) {	//kol jis yra daugiau uz 16
 			
@@ -53,10 +39,8 @@
 				} else {
 				
 					skaitmuo_skx  =  skaitmuo_sk;     //perdarom?
-					
 				}
 
-				
 				suma =  skaitmuo_skx + suma;   // suskaiciojam
 				
 				console.log( 'skaitmuo:' + skaitmuo );
@@ -69,14 +53,3 @@
 			res.innerHTML=res_str;
 		}
 		
-	</script>
-</head>
-<body>
-	<label>10paverst16</label>
-	<input type="text" id="antroji" name="antroji" value="349">
-	<hr>
-	<input type="button" id="skaiciuoti" name="skaiciuoti" value="skaiciuoti" onClick="skaiciuoti()">
-	<div id="rez">
-	</div>
-</body>
-</html>
