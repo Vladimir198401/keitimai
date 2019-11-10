@@ -4,7 +4,7 @@
 			res_str  = '';
 			res = document.getElementById ( "rez" );			// document.getElementById - naudojam perdoti  reiksme funkcijai 
 			dvl = document.getElementById ( "antroji" ).value;
-			skc =0;                                   		//funkcija ( naudojamas (ATSPINDINTIS) zodis pakeciantis skaicius ar tam tikras ju reiksmes  01223456789 +  -   = / *  < > sssza
+			skc =0;                                   		//funkcija ( naudojamas (ATSPINDINTIS) zodis pakeciantis skaicius ar tam tikras ju reiksmes  01223456789 +  -   = / *  < > 
 			kiekis = dvl.length - 1;  // paskutinto simbolio numeris
 			i=0;
 			suma=0;
@@ -36,7 +36,7 @@
 										*  			dvl_i tai 1 arba 0 kuris padauginamas is sk tai pozicijos vertes daigiklis jau pries tai funkcijoi jau kurem buvo skirtas veiksmas daugint is 2
 										*			skc gaunasi gaunama reiksme dvl_i * sk , kuri ligi  pvz 1*1 0*2 1*4 0*6 1*8 0*16  daugint  is ko gaunama galutine suma
 										*/
-					suma += skc;				
+					suma += skc;			// gaunama reiksme pliusojama	
 				} else {                                    
 
 					klaidos_poz =  '<span class="error">?</span>';    //  deze, erdve , kitems elementams atvaizdoti , class nurodo kokiaj klasei jis priklauso
@@ -51,6 +51,6 @@
 				console.log ( 'skc: ' + skc );  	
 				console.log ( 'suma: ' + suma );
 			}		
-			res_str = suma + klaidos_poz;   		//galutine reiksme
+			res_str = suma + klaidos_poz;   		//galutine reiksme   /res_str  sujungia gaunamus is atsakimo bei klaidos....  suma +  klaidos_paz 
 			res.innerHTML = res_str ;    		// galutines riksmes atspidndis ekrane (front ende) parodimas
 		}

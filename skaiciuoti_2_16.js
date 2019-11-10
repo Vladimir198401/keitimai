@@ -5,7 +5,7 @@
 		res = document.getElementById ( 'rez' );						// document.getElementById - naudojam perdoti  reiksme funkcijai 
 		a= document.getElementById("antroji").value;
 
-		numerio_dalis_14 =0;
+		numerio_dalis_14 =0;				//funkcija ( naudojamas (ATSPINDINTIS) zodis pakeciantis skaicius ar tam tikras ju reiksmes  01223456789 +  -   = / *  < > 
 		galutine_dalis = 0;
 		skaicius_hex = '';
 										console.log( 'a.length: ' + a.length  );

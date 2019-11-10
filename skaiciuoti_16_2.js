@@ -4,7 +4,7 @@
 		res_str = '';
 		res = document.getElementById ( 'rez' );				// document.getElementById - naudojam perdoti  reiksme funkcijai 
 		a= document.getElementById("antroji").value;
-		klaidos_poz = '';
+		klaidos_poz = '';				//funkcija ( naudojamas (ATSPINDINTIS) zodis pakeciantis skaicius ar tam tikras ju reiksmes  01223456789 +  -   = / *  < >  ir nenustatita zymima taip '' 
 		suma=0;
 	
 		for (var i = 0; i < a.length; i++) { 	 /*ciklas ("kilpa, ratu besikartojantis"), kartojantis koda, kelis kartus ji atkartoja iki nustatitos rybos
