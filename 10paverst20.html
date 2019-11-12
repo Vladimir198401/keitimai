@@ -23,7 +23,7 @@
 		var dvl;
 		var skaitmuo_skx;
 		
-		function skaiciuoti() {
+	function skaiciuoti () {
 	
 			res_str  = '';
 			res = document.getElementById ( "rez" );		     // document.getElementById - naudojam perdoti  reiksme funkcijai 	
@@ -38,40 +38,50 @@
 			
 			if ( isNaN ( xdvl )) {  
 										/*			tikrinam ar simbolis yra  ar nera skacius -  isNaN (xdvl )
-										*        			 xdvl skaicius yra 349  jaigu tai ne skaicius o kitas simbolis jis panaudojimas kitoi eilutei ji paminejus,
+										*        			 xdvl skaicius yra 553  jaigu tai ne skaicius o kitas simbolis jis panaudojimas kitoi eilutei ji paminejus,
 										*    			suma =  '<span class="error">?</span>';
 										*/
-			//  if  - Kodas, kuri vykdo, jei salyga yra ivigdita	 else  -  kodas, kurÄ¯ vykdome, jei sÄ…lyga nera ivykdyta		if else - skirtas naudoti kai jei atitinka salyga, tada vykdoma viena koda, kitu atveju kita.
+							//  if  - Kodas, kuri vykdo, jei salyga yra ivigdita	 
+							//else  -  kodas, kurÄ¯ vykdome, jei sÄ…lyga nera ivykdyta		
+							//if else - skirtas naudoti kai jei atitinka salyga, tada vykdoma viena koda, kitu atveju kita.
 			
-		
-				//  suma = jai suma ne ligi dvl  ji panaudojama kaip klaida
+							//  suma = jai suma ne ligi dvl  ji panaudojama kaip klaida
 				
 				suma = '<span class="error">?</span>'; //  deze, erdve , kitems elementams atvaizdoti , class nurodo kokiaj klasei jis priklauso
 				
 			}
 			
-			while ( dvl > 0 ) {	// kol  dal yra daugiau uz 0 , ciklo funkcijos vigdomos pagal nuroditus parametrus, kai nebe , funkcija  while cikle nebevikdoma
-								//ciklas ("kilpa, ratu besikartojantis"), kartojantis koda, kelis kartus ji atkartoja iki nustatitos rybos
+			while ( dvl > 0 ) {					// kol  dvl yra daugiau uz 0 , ciklo funkcijos vigdomos pagal nuroditus parametrus, kai nebe , funkcija  while cikle nebevikdoma
+											//ciklas ("kilpa, ratu besikartojantis"), kartojantis koda, kelis kartus ji atkartoja iki nustatitos rybos
 			
-				skaitmuo = parseInt (dvl /16);   // skaitmuo - funkcija kuriai pries for cikla buvo suteikta reiksme ligi 0, jai suteikiama reiksme naudojama is  kitu funkciju parseInt ( ...... ) 
-				                                            //parseInt - funkcija analizuoja eilutes  argumenta ir grazina nurodyto sveika skaiciu.. (dvl/16 ] )  dvl eilutes simbolio numeris  dalinam ji  16
+					skaitmuo = parseInt (dvl /18);  	 // skaitmuo - funkcija kuriai pries for cikla buvo suteikta reiksme ligi 0, jai suteikiama reiksme naudojama is  kitu funkciju parseInt ( ...... ) 
+											//parseInt - funkcija analizuoja eilutes  argumenta ir grazina nurodyto sveika skaiciu.. (dvl/16 ] )  dvl eilutes simbolio numeris  dalinam ji  16
+					skaitmuo_sk = (dvl %18);    		 // padalinus dvl eilute i 16 perkeliama liekana likuse po 16
 				
-				skaitmuo_sk = (dvl %16);     // padalinus dvl eilute i 16 perkeliama liekana likuse po 16
+				if ( dvl > 360  ) { 
+					
+					skaitmuo = parseInt (dvl /20); 
 				
-				if ( skaitmuo_sk > 9 ) {     	//  if  - Kodas, kuri vykdo, jei salyga yra ivigdita  // jaigu skaitmuo_sk  daugiau uz 9 tada swithc cikle ji yra pakeiciama i kitmasos raide priklausancia tam skaiciui
-										// taip kaip pavaizdota case eilutei kitaip jis panaudojamas else kode
+					skaitmuo_sk = (dvl %20);
+				}
+				if ( skaitmuo_sk > 9 ) {     			//  if  - Kodas, kuri vykdo, jei salyga yra ivigdita  // jaigu skaitmuo_sk  daugiau uz 9 tada swithc cikle ji yra pakeiciama i kitmasos raide priklausancia tam skaiciui
+											// taip kaip pavaizdota case eilutei kitaip jis panaudojamas else kode
 	
-					switch ( skaitmuo_sk ) {  // kol  skaitmuo_sk  daugiau uz 9 tada swithc cikle ji yra pakeiciama i  raide priklausancia tam skaiciui
-										//, ciklo funkcijos vigdomos pagal nuroditus parametrus, kai nebe , funkcija  while cikle nebevikdoma
-										//ciklas ("kilpa, ratu besikartojantis"), kartojantis koda, kelis kartus ji atkartoja iki nustatitos rybos
+					switch ( skaitmuo_sk ) {  		// kol  skaitmuo_sk  daugiau uz 9 tada swithc cikle ji yra pakeiciama i  raide priklausancia tam skaiciui
+											//, ciklo funkcijos vigdomos pagal nuroditus parametrus, kai nebe , funkcija  while cikle nebevikdoma
+											//ciklas ("kilpa, ratu besikartojantis"), kartojantis koda, kelis kartus ji atkartoja iki nustatitos rybos
 					
 						case 10: skaitmuo_skx = 'a'; break;
 						case 11: skaitmuo_skx = 'b'; break;
 						case 12: skaitmuo_skx = 'c'; break;
 						case 13: skaitmuo_skx = 'd'; break;			// priskiriama kaip sio atveju raides arba  kitais atvejais skaitmens reiksme, dar kitais atvejais gali but naudojami zodiai arba pavadinimai
 						case 14: skaitmuo_skx = 'e'; break;
-						case 15: skaitmuo_skx = 'f'; break;						
-					}
+						case 15: skaitmuo_skx = 'f'; break;
+						case 16: skaitmuo_skx = 'g'; break;
+						case 17: skaitmuo_skx = 'h'; break;
+						case 18: skaitmuo_skx = 'i'; break;
+						case 19: skaitmuo_skx = 'j'; break;
+					}					
 				
 				} else {			// else  -  kodas, kurį vykdome, jei sąlyga nera ivykdyta
 				
@@ -96,12 +106,11 @@
 			res_str+=suma;   //galutine reiksme
 			res.innerHTML=res_str;  // galutines riksmes atspidndis ekrane (front ende) parodimas
 		}
-		
 	</script>
 </head>
 <body>
-	<label>10paverst16</label>
-	<input type="text" id="antroji" name="antroji" value="349">
+	<label>10paverst20kinu budu</label>
+	<input type="text" id="antroji" name="antroji" value="553">
 	<hr>
 	<input type="button" id="skaiciuoti" name="skaiciuoti" value="skaiciuoti" onClick="skaiciuoti()">
 	<div id="rez">

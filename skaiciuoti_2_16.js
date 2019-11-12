@@ -46,7 +46,7 @@
 				
 			eiles_numeris = numbers.indexOf ( numerio_dalis_14);		//  eiles_numeris = priskiaramas eilutes simbolis kuri numbers.indexOf istraukia is  (numerio_dalis_14); 
 															//	kuri  reiskia duoto skaiciaus pozicijos numeri numbers masyve
-										// numbers yra simboliu masyvas, dotu simboliu eilute.. masyvas glob aliai aprasytsas, naudojamas virs fukction . pavizdi ziuret pagrindinem, pilnam faile..
+										// numbers yra simboliu masyvas, dotu simboliu eilute.. masyvas globaliai aprasytas, naudojamas virs fukction . pavizdi ziuret pagrindinem, pilnam faile..
 									// indexOf yra metodas . funkcija priklausanti objektui vadinama  metodu , java ir javaskrypte masivas yra objektas. objektas yra domenis apjunkti su tos domenis tvarkanciomis funkcijomis
 			
 			if ( eiles_numeris !== -1 ) {  

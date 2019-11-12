@@ -4,9 +4,9 @@
 			res_str  = '';
 			res = document.getElementById ( "rez" );			// document.getElementById - naudojam perdoti  reiksme funkcijai 
 			dvl = document.getElementById ( "antroji" ).value;
+		
 			skc =0;                                   		//funkcija ( naudojamas (ATSPINDINTIS) zodis pakeciantis skaicius ar tam tikras ju reiksmes  01223456789 +  -   = / *  < > 
 			kiekis = dvl.length - 1;  // paskutinto simbolio numeris
-			i=0;
 			suma=0;
 			sk=1/2; 
 		

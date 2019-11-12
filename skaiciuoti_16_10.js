@@ -73,7 +73,7 @@
 			}
 		
 			
-			poz16_daugikl *= 16;	// poz16_daugikl = 16*16		
+			poz16_daugikl *= 16;	// poz16_daugikl = priklouso nuo zingsnio*16		
 
 			console.log( 'skaitmuo' + skaitmuo );
 			console.log( 'skaitmuo_sk:' + skaitmuo_sk  );
