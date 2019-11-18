@@ -20,14 +20,14 @@
 	function skaiciuoti() {
 	
 		res_str  = '';
-		sk_raid = [ 'a', 'b', 'c', 'd', 'e', 'f' ];           //  funkcios simboliu eilute
+		sk_raid = [ 'a', 'b', 'c', 'd', 'e', 'f','g','h','i','j', ];           //  funkcios simboliu eilute
 		res = document.getElementById ( "rez" );			 // document.getElementById - naudojam perdoti  reiksme funkcijai 
 		dvl= document.getElementById ( "antroji" ).value;
 		suma = 0;						
 		str_suma= '';    					//funkcija ( naudojamas (ATSPINDINTIS) zodis pakeciantis skaicius ar tam tikras ju reiksmes  01223456789 +  -   = / *  < > ''
 		
 		kiekis = dvl.length;  // kiekis = tai perkeliama reiksme is dvl.length  tai  doto skaiciaus simboliu eilute
-		poz16_daugikl = 1;	//  funkcija ligu
+		poz20_daugikl = 1;	//  funkcija ligu pozicija prasidiena nuo 1
 		
 		for ( i = 0; i < kiekis; i++ ) {			/*ciklas ("kilpa, ratu besikartojantis"), kartojantis koda, kelis kartus ji atkartoja iki nustatitos rybos
 										*	i=0	teiginys ivykdomas (1 karta) pries vykdant for kodu cikla . jame nustatoma kintamoji pries pradedant kilpa
@@ -53,13 +53,16 @@
 					case 'c': skaitmuo_sk = 12; break;		// priskiriama raides arba kaip sio atveju skaitmens reiksme, kitais atvejais gali but naudojami zodiai arba pavadinimai
 					case 'd': skaitmuo_sk = 13; break;
 					case 'e': skaitmuo_sk = 14; break;
-					case 'f': skaitmuo_sk = 15; break;						
+					case 'f': skaitmuo_sk = 15; break;	
+					case 'g': skaitmuo_sk = 16; break;
+					case 'h': skaitmuo_sk = 17; break;
+					case 'i': skaitmuo_sk = 18; break;
+					case 'j': skaitmuo_sk = 19; break;					
 				}
 			
 			} else {		// else  -  kodas, kuri  vykdome, jei salyga nera ivykdyta
 			
 				skaitmuo_sk = parseInt ( skaitmuo );   //perdarom? nuroditas raides, paverciam nuroditais skaiciais
-
 			} 
 			
 			if ( isNaN ( skaitmuo_sk ) ) {  
@@ -73,16 +76,28 @@
 				
 			} else {     //else  -  kodas, kuri vykdome, jei salyga nera ivykdyta,  jai if yra skaicius
 				
-				suma += skaitmuo_sk * poz16_daugikl;      // suma sudeda ir pliusoja gauta suma is gauto skaitmens kiris dauginamas is pozicijos daugiklio 1*16*16(2)kvadratu+5*16(1) +13(0) =349
+				suma += skaitmuo_sk*poz20_daugikl;      // suma sudeda ir pliusoja gauta suma is gauto skaitmens kiris dauginamas is pozicijos daugiklio        233d  = (3)2 * 20 * 20 * 20 + (2)3 * 20 * 20 + (1)3 * 20 + (0)13 = 16000 + 1200 + 60 + 13 = 17273       
 			}
-		
+			console.log( 'i: ' + i );			
+			console.log( 'skaitmuo: ' + skaitmuo );
+			console.log( 'skaitmuo_sk: ' + skaitmuo_sk  );
+			console.log( 'poz20_daugikl: ' + poz20_daugikl );
+			console.log( 'suma: ' + suma );			
 			
-			poz16_daugikl *= 16;	// poz16_daugikl = 16*16		
-
-			console.log( 'skaitmuo' + skaitmuo );
-			console.log( 'skaitmuo_sk:' + skaitmuo_sk  );
-			console.log( 'poz16_daugikl:' + poz16_daugikl );
-
+			// yra	  233d  = (3)2 * 20 * 20 * 20 + (2)3 * 20 * 20 + (1)3 * 20 + (0)13 = 16000 + 1200 + 60 + 13 = 17273
+			
+			// reikia 	  233d = (3)2 * 360 * 20 + (2)3 * 360 + (1)3 * 20 + (0)13 = 14400 + 1080 +60 + 13 = 15553
+			// reikia	  233d = (3)2*18*20*20+(2)3 * 18*20 +(1)3 * 20+ (0)13 = 14400 + 1080 +60 + 13 = 15553
+	
+			if ( i  ==  1 ) {
+																//	= priskiria     == tikrina
+				poz20_daugikl *= 18;
+				
+			} else {
+			
+				poz20_daugikl *= 20;			
+			}
+			
 		}
 		str_suma=suma+str_suma;       
 		res_str =str_suma;			 //galutine reiksme
@@ -92,7 +107,7 @@
 </head>
 <body>
 	<label>šešioliktainis</label>
-	<input type="text" id="antroji" name="antroji" value="15d">
+	<input type="text" id="antroji" name="antroji" value="233d">
 	<hr>
 	<input type="button" id="skaiciuoti" name="skaiciuoti" value="skaiciuoti" onClick="skaiciuoti()">
 	<div id="rez">

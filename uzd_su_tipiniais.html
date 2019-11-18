@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>atvertimas</title>
+	<style>
+	label, input {
+		display: block;
+	}
+	table.res {
+		border-collapse: collapse;
+	}
+	table.res td, table.res th {
+		border: 1px solid black;
+	}
+	</style>
+	<script>
+
+				
+	function kiekis_suma() {
+	
+
+		res = document.getElementById ( "rez" );			 // document.getElementById - naudojam perdoti  reiksme funkcijai 
+		skaiciai = document.getElementById ( "skaiciai" ).value.split( ',' );
+		
+		skaiciu_suma = 0;
+		kiekis = 0;
+		res_str = '';
+		nr_grupes = 1;
+			
+			
+		for ( i = 0; i < skaiciai.length; i++ ) {
+		
+			// rezultato eilute reikia parasyt pries nunulinant skaiciu suma
+			
+			if (skaiciai [ i ] == 0) {
+			
+				res_str += nr_grupes + '-os grupės suma: ' +  skaiciu_suma + '<br>';
+				
+				nr_grupes++;
+														// console.log (' skaiciu_suma: ' + skaiciu_suma );
+				skaiciu_suma = parseInt ( skaiciai [ i ] );
+				
+			} else {
+			
+				skaiciu_suma +=parseInt ( skaiciai [ i ] );
+			}
+			console.log ( 'i:' + i  + 'skaiciai [ i ]: ' + skaiciai [ i ] + ' skaiciu_suma: ' + skaiciu_suma );
+		
+			kiekis++;
+			
+		}
+		
+		/*if ( skaiciai [ skaiciai.length - 1 ] !=0 )  {
+			
+			res_str += nr_grupes + '-os grupės suma: ' +  skaiciu_suma + '<br>';
+		}	*/
+		
+		res_str += ' kiekis: ' + kiekis; 
+		res.innerHTML += res_str;	
+		res.innerHTML += '<br> <br>' ;
+	}
+
+	function min_ir_max() {
+	
+		res = document.getElementById ( "rez" );		
+		skaiciai = document.getElementById ( "skaiciai" ).value.split( ',' );
+
+		res_str = '';
+		nr_grupes = 1;
+		skaicius_int=0;
+		min = 0;
+		max = 0;
+		flag_pasiimti_min_max = true;
+		
+		for (  i = 0; i < skaiciai.length; i++ ) {
+		
+			if (skaiciai [ i ] == 0) {
+			
+				res_str += nr_grupes + '-os grupės  min  ir max: ' +  min + '   ' +  max + '<br>';
+				
+				nr_grupes++;
+				/*grupe skaicioja nuo pradzio iki 0 kaskart dadedant sekancia grupe ir min max skaiciojamas is didesniu skaiciu eilutes
+				
+				12,10,3,-8,-5
+				12,10,3,-8,-5,0,-12,4,22
+				12,10,3,-8,-5,0,-12,4,22,0,16,9,4,30
+				
+				
+				o reikia kad skaiciotu 
+				12,10,3,-8,-5,
+				0
+				,-12,4,22,
+				0
+				,16,9,4,30
+				*/
+			}else{
+				
+					skaicius_int = parseInt ( skaiciai [ i ] );
+					
+				/*if (nr_grupes == 1){
+				
+					skaicius_int = parseInt ( skaiciai [ i ] );
+					
+				}*/
+				 if ( skaicius_int > max ) {
+				 
+					max = skaicius_int;
+					
+				}
+				 if ( skaicius_int < min ) { 
+								
+					min = skaicius_int;
+								
+				}
+					console.log ( ' skaicius_int: ' +  skaicius_int);
+					console.log ( ' skaiciai [ i ]: ' +  skaiciai [ i ] );
+					console.log ( ' min: ' + min  +  'max: ' + max );
+					console.log ( 'nr_grupes: ' + nr_grupes);
+			}      
+		}
+		res.innerHTML += res_str;	
+		res.innerHTML += '<br> <br>' ;	  
+	}	
+	</script>
+</head>
+<body>
+	<label>skaičių seka</label>
+	<input type="text" id="skaiciai" name="skaiciai" value="12,10,3,-8,-5,0,-12,4,22,0,16,9,4,30,">
+	<hr>
+	<input type="button" id="kiekis_suma" name="kiekis_suma" value="Kiekis, suma" onClick="kiekis_suma()">
+	<input type="button" id="min_ir_max" name="min_ir_max" value="Min ir max" onClick="min_ir_max()">	
+	<div id="rez">
+	</div>
+</body>
+</html>
