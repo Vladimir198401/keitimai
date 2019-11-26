@@ -29,11 +29,13 @@
 		
 			klaidos_poz = '';
 			
-			for ( i = 0; i < dvl.length; i++) {	 /*ciklas ("kilpa, ratu besikartojantis"), kartojantis koda, kelis kartus ji atkartoja iki nustatitos rybos
-										*	i=0	teiginys įvykdomas (1 karta) pries vykdant for kodu cikla . jame nustatoma kintamoji pries pradedant kilpa
+			for ( i = 0; i < dvl.length; i++) {		 /*ciklas ("kilpa, ratu besikartojantis"), kartojantis koda, kelis kartus ji atkartoja iki nustatitos rybos
+										*	i=0	teiginys ivykdomas (1 karta) pries vykdant for kodu cikla . jame nustatoma kintamoji pries pradedant kilpa
 										*	i < dvl.length      sakinys nustato kodo bloko vykdymo saliga , sakinis apibudina kilpos paleidimo salyga  - i - maziau uz dvl.length ( doto skaicius simboliu kiekis)
 										*	i++	teiginys vykdomas (kiekvieną kartą) ivykdzius kodo bloka, i++ padidina reiksme kaskart , kai vykdoma kilpa ( uzduodamas procesas, kaip bus panaudojus tam tikra funkcija)
+										*	i yra ciklo skatiklis
 										*/
+										
 
 				sk=sk * 2;				// panaudojamas uzduotas for funkcijos procesas  sk = skaicius cikle dauginamas is dvieju , todel kad imamas is dvejetainiu naudojama nenustatita reiksme sk=1/2 poto sk=sk*2 kuri ima is
 										//	turimos skaiciu  - dvl = document.getElementById ( "antroji" ).value; - (simboliu) jau suteiktos eilutes, ir panaudojimas kitoi vetoi ji paminejus..

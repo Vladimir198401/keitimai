@@ -26,26 +26,15 @@
 		skaiciu_suma = 0;
 		kiekis = 0;
 		res_str = '';
-		nr_grupes = 1;
 		klaidos = [];	
 			
 		for ( i = 0; i < skaiciai.length; i++ ) {
 		
 					// rezultato eilute reikia parasyt pries nunulinant skaiciu suma
 			if ( ! isNaN ( skaiciai [ i ] ) ) { 
-			
-					if (skaiciai [ i ] == 0) {
-				
-					res_str += nr_grupes + '-os grupės suma: ' +  skaiciu_suma + '<br>';
+								
+					skaiciu_suma +=parseInt ( skaiciai [ i ] );
 					
-					nr_grupes++;
-															// console.log (' skaiciu_suma: ' + skaiciu_suma );
-					skaiciu_suma = parseInt ( skaiciai [ i ] );
-					
-					} else {
-					
-						skaiciu_suma +=parseInt ( skaiciai [ i ] );
-					}
 					console.log ( 'i:' + i  + 'skaiciai [ i ]: ' + skaiciai [ i ] + ' skaiciu_suma: ' + skaiciu_suma );
 				
 					kiekis++;
@@ -55,17 +44,13 @@
 						klaidos.push ( 'klaida ' + i + '-oje pozicojoje, nepavyko atpažinti skaičiaus' );
 				}
 		}
-		if ( skaiciai [ skaiciai.length - 1 ] != 0 ) {
-		
-			res_str += nr_grupes + '-os grupės   suma: ' +  skaiciu_suma + '<br>';
-		}
 		
 		if ( klaidos.length > 0 ) {
 		
 			alert ( 'Klaidos: \n' + klaidos.join( '\n' ) ); 
 		}
 		
-		res_str += ' kiekis: ' + kiekis; 
+		res_str += ' kiekis: ' + kiekis + ' skaičių suma: ' + skaiciu_suma; 
 		res.innerHTML += res_str;	
 		res.innerHTML += '<br> <br>' ;
 	}
@@ -76,62 +61,47 @@
 		skaiciai = document.getElementById ( "skaiciai" ).value.split( ',' );
 
 		res_str = '';
-		nr_grupes = 1;
 		skaicius_int=0;
 		min = 0;
-		max = 0;
+		max = 0
 		klaidos = [];
 		flag_pasiimti_min_max = true;
-		
+
 		for (  i = 0; i < skaiciai.length; i++ ) {
 		
 			skaicius_int = parseInt ( skaiciai [ i ] );
 			
 			if ( ! isNaN ( skaicius_int ) ) { 
-		
-				if ( flag_pasiimti_min_max ) {
+			
+				if ( flag_pasiimti_min_max  ) {
 				
 					min = skaicius_int;
 					max = skaicius_int;
 					flag_pasiimti_min_max = false;
 				}
-			
-				if (skaiciai [ i ] == 0) {
-			
-					res_str += nr_grupes + '-os grupės  min  ir max: ' +  min + '   ' +  max + '<br>';
-					
-					nr_grupes++;
-					
-					flag_pasiimti_min_max = true;
-					
 
-				} else {
+				 if ( skaicius_int > max ) {
+				 
+					max = skaicius_int;
 					
-					 if ( skaicius_int > max ) {
-					 
-						max = skaicius_int;
-						
-					}
-					 if ( skaicius_int < min ) { 
-									
-						min = skaicius_int;
-									
-					}
-					console.log ( ' skaicius_int: ' +  skaicius_int);
-					console.log ( ' skaiciai [ i ]: ' +  skaiciai [ i ] );
-					console.log ( ' min: ' + min  +  'max: ' + max );
-					console.log ( 'nr_grupes: ' + nr_grupes);
-				}     
-				
+				}
+				 if ( skaicius_int < min ) { 
+								
+					min = skaicius_int;
+								
+				}
+				console.log ( ' skaicius_int: ' +  skaicius_int);
+				console.log ( ' skaiciai [ i ]: ' +  skaiciai [ i ] );
+				console.log ( ' min: ' + min  +  'max: ' + max );
+
 			} else {
 				
 				klaidos.push ( 'klaida ' + i + '-oje pozicojoje, nepavyko atpažinti skaičiaus' );
 			}
 		}
-		if ( skaiciai [ skaiciai.length - 1 ] != 0 ) {
 		
-			res_str += nr_grupes + '-os grupės  min  ir max: ' +  min + '   ' +  max + '<br>';
-		}
+		res_str +='min  ir max: ' +  min + '   ' +  max + '<br>';
+		
 		
 		if ( klaidos.length > 0 ) {
 		

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>skaiciai_zodziais</title>
+	<style>
+	label, input {
+		display: block;
+	}
+	table.res {
+		border-collapse: collapse;
+	}
+	table.res td, table.res th {
+		border: 1px solid black;
+	}
+	</style>
+	<script>
+	
+		var japan = [ 'milijonai', 'simtai tukstanciu', 'desimtis tukstanciu', 'tukstanciai', 'simtai' , 'desimtis', 'venetai' ];
+		
+	function skaiciuoti () {
+	
+			res_str  = '';
+			res = document.getElementById ( "rez" );		     // document.getElementById - naudojam perdoti  reiksme funkcijai 	
+			skaiciai = document.getElementById ( "antroji" ).value;
+			suma = '';
+			skaitmuo='';
+			skaitmuo_sk='';	
+			
+			for ( var i = 0; i < skaiciai.length; i++) {
+						
+				skaitmuo = parseInt ( skaiciai [ i ] );
+				
+				if ( skaitmuo != 0 ) {  
+					
+					skaitmuo_sk = japan [ japan.length - 1 -  ( skaiciai.length - 1 ) + i ];  /* skaitmuo_sk gaunas mosivo eiliskumas kuris nustatitas ir imamas is mosivo japan [ japan.length '''7''' - 1 -
+																	sio atveju gaunasi  6  yra mosivo ilgis minus vienas imamas nuo priekio  - (skaiciai.length '''3''' - 1-)
+																	yra duotu skaiciu ilgios  -1 ) sio atveju gaunasi minus 2 tai imama pirmai zodis simtas ir pridedamas i '''+i''' tai 
+																	skaiciojama kaskart plius sekantis skaicio zodis is masivo japan, tai gaunas simtas, desimtis,vienetai.
+																	
+																	
+																	
+																	
+																	
+																	*/
+							
+					suma += skaitmuo + ' ' + skaitmuo_sk + ' ' ;
+														console.log ('skaitmuo_sk:' + skaitmuo_sk );
+														console.log ('skaitmuo:' + skaitmuo );
+														console.log ('japan[ i ]:' + japan[ i ] );
+				}
+			}
+			res_str+=suma;   //galutine reiksme
+			res.innerHTML=res_str;  // galutines riksmes atspidndis ekrane (front ende) parodimas
+		}
+	</script>
+</head>
+<body>
+	<label>skaiciai_zodziais</label>
+	<input type="text" id="antroji" name="antroji" value="349">
+	<hr>
+	<input type="button" id="skaiciuoti" name="skaiciuoti" value="skaiciuoti" onClick="skaiciuoti()">
+	<div id="rez">
+	</div>
+</body>
+</html>
